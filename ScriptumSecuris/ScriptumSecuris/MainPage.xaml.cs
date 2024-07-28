@@ -2,23 +2,50 @@
 {
     public partial class MainPage: ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void SelectedIndexChanged(object sender, EventArgs e)
         {
-            count++;
+            if(sender is Picker picker)
+            {
+                if(picker.SelectedIndex == 0)
+                    return;
 
-            if(count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+                var selectedOption = picker.SelectedItem;
+                if(selectedOption != null)
+                {
+                    label.Text = selectedOption.ToString();
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+                    switch(selectedOption)
+                    {
+                        case "Open":
+                        // Логика для открытия файла
+                        break;
+                        case "Save":
+                        // Логика для сохранения файла
+                        break;
+                        case "Save As":
+                        // Логика для сохранения файла как
+                        break;
+                    }
+
+
+                }
+                // Сбрасываем выбранный элемент
+                picker.SelectedIndex = 0;
+            }
+        }
+
+        private void FilePicker_Loaded(object sender, EventArgs e)
+        {
+            if(sender is Picker picker)
+            {
+                picker.SelectedIndex = 0;
+            }
         }
     }
 

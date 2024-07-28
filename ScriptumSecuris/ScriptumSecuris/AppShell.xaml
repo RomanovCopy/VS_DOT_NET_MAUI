@@ -7,22 +7,8 @@
     Shell.FlyoutBehavior="Flyout"
     Title="ScriptumSecuris">
 
-    <!--Основное меню приложения-->
     <FlyoutItem Title="Home">
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
 
-    <!-- Настройки -->
-    <!--
-    <FlyoutItem Title="Settings">
-        <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />
-    </FlyoutItem>-->
-
-    <!-- Меню File -->
-    <MenuItem Text="File" IsEnabled="False">
-        <!-- Заголовок меню, не кликабельный -->
-        <MenuItem Text="Open" Clicked="OnOpenClicked" />
-        <MenuItem Text="Save" Clicked="OnSaveClicked" />
-        <MenuItem Text="Save As" Clicked="OnSaveAsClicked" />
-    </MenuItem>
 </Shell>
